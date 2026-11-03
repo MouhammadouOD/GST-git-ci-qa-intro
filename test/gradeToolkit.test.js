@@ -1,6 +1,6 @@
-const { calculateAverage, letterGrade, isPassing } = require('../src/gradeToolkit');
+const { calculateAverage, letterGrade, isPassing, classAverage } = require('../src/gradeToolkit');
 
-const TOTAL_TESTS = 10;
+const TOTAL_TESTS = 12;
 let passed = 0;
 
 function check(name, condition) {
@@ -38,6 +38,12 @@ check('letterGrade returns D for 60-69', letterGrade(65) === 'D');
 check('letterGrade returns F below 60', letterGrade(40) === 'F');
 
 check('isPassing uses the default 60 threshold', isPassing(60) === true && isPassing(59) === false);
+check('isPassing respects a custom threshold', isPassing(65, 70) === false);
+
+check(
+  'classAverage averages per-student averages, not raw scores',
+  classAverage({ alice: [100, 100], bob: [0, 0] }) === 50
+);
 
 console.log(`\n${passed}/${TOTAL_TESTS} tests passed`);
 if (passed !== TOTAL_TESTS) process.exit(1);

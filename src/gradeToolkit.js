@@ -21,4 +21,9 @@ function isPassing(average, passingThreshold = 60) {
   return average >= passingThreshold;
 }
 
-module.exports = { calculateAverage, letterGrade, isPassing };
+function classAverage(studentScores) {
+  const studentAverages = Object.values(studentScores).map((scores) => calculateAverage(scores));
+  return calculateAverage(studentAverages);
+}
+
+module.exports = { calculateAverage, letterGrade, isPassing, classAverage };
