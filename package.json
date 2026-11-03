@@ -1,0 +1,13 @@
+{
+  "name": "grade-toolkit",
+  "version": "1.0.0",
+  "description": "A small grade-calculation toolkit used to demonstrate Git branching/merging, CI, and QA practices",
+  "main": "src/gradeToolkit.js",
+  "scripts": {
+    "test": "node test/gradeToolkit.test.js",
+    "lint": "eslint src test"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0"
+  }
+}
