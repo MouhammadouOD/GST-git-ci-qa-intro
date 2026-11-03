@@ -6,4 +6,19 @@ function calculateAverage(scores) {
   return sum / scores.length;
 }
 
-module.exports = { calculateAverage };
+function letterGrade(average) {
+  if (typeof average !== 'number' || Number.isNaN(average)) {
+    throw new Error('average must be a number');
+  }
+  if (average >= 90) return 'A';
+  if (average >= 80) return 'B';
+  if (average >= 70) return 'C';
+  if (average >= 60) return 'D';
+  return 'F';
+}
+
+function isPassing(average, passingThreshold = 60) {
+  return average >= passingThreshold;
+}
+
+module.exports = { calculateAverage, letterGrade, isPassing };
